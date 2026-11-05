@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de competidores - Senasoft</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contenedor {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #006633;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #00843d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #006633;
+        }
+
+        .errores {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>Registro Senasoft</h1>
+
+        <p>Formulario de inscripción de competidores</p>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label>Nombre del competidor</label>
+            {{ form.nombre }}
+            {{ form.nombre.errors }}
+
+            <label>Centro de formación</label>
+            {{ form.centro }}
+            {{ form.centro.errors }}
+
+            <label>Categoría</label>
+            {{ form.categoria }}
+            {{ form.categoria.errors }}
+
+            <button type="submit">
+                Registrar competidor
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

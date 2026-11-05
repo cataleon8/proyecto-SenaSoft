@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Competidores Senasoft</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f2;
+            padding: 40px;
+        }
+
+        .contenedor {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #006633;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        th, td {
+            padding: 14px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #00843d;
+            color: white;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #00843d;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>Competidores inscritos en Senasoft</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Centro de formación</th>
+                    <th>Categoría</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for competidor in competidores %}
+                <tr>
+                    <td>{{ competidor.nombre }}</td>
+                    <td>{{ competidor.centro }}</td>
+                    <td>{{ competidor.categoria }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3">No hay competidores registrados.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{% url 'registro' %}">Registrar otro competidor</a>
+
+    </div>
+
+</body>
+</html>
